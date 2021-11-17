@@ -6,3 +6,5 @@ To create this project, a function called run is executed every 200ms that adjus
 For additional help with syntax issues, visit the JavaScript Guide with MDN 
 
 A cool addition to this project would be to incorporate a ghost chasing the Pacman, or the Pacman eating more dots as it chomps along.
+
+-Adam Chory
