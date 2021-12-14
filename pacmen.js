@@ -60,7 +60,7 @@ function update() {
     checkCollisions(item);
     item.position.x += item.velocity.x;
     item.position.y += item.velocity.y;
-    item.focus = (item.focus + 1) % 2;
+    item.focus = (item.focus + 1) % 2;  //alternates between 0 and 1 to represent open and closed mouth
 
     item.newimg.style.left = item.position.x;
     item.newimg.style.top = item.position.y;
@@ -69,76 +69,35 @@ function update() {
   setTimeout(update, 100);
 }
 
+//detects collisions with all walls and makes pacman bounce
 function checkCollisions(item) {
-  // TODO: detect collision with all walls and make pacman bounce
-    if (
+  //if it reaches the y-limits of the page  
+  if (
     item.position.x + item.velocity.x + item.newimg.width > window.innerWidth ||
     item.position.x + item.velocity.x < 0
   )
     {item.velocity.x = -item.velocity.x;
       if (item.velocity.x > 0){item.direction=0;}
       if (item.velocity.x < 0){item.direction=1;}
+     //reverse x velocity and indicate direction change
     }
+  
+  //if it reaches the y-limits of the page
   if (
     item.position.y + item.velocity.y + item.newimg.height >
       window.innerHeight ||
     item.position.y + item.velocity.y < 0
   )
     {item.velocity.y = -item.velocity.y;}
-
+    //reverse y velocity
   return item.direction;
 }
 
+//makeOne will add a new PacMan to the end of the pacMen array using .push
 function makeOne() {
   pacMen.push(makePac()); // add a new PacMan
 }
 
-//don't change this line
 if (typeof module !== 'undefined') {
   module.exports = { checkCollisions, update, pacMen };
 }
-
-// //pageWidth is the width of the webpage. This is later used to calculate when Pac-Man needs to turn around. 
-// let pageWidth = window.innerWidth;
-
-// // This variable helps determine which PacMan image should be displayed. It flips between values 0 and 1
-// let focus = 0;
-
-// // This function is called on mouse click. Every time it is called, it updates the pacman image, position, and direction (if necessary) on the screen.
-// function Run() {
-//   //update pacman image
-//   let img = document.getElementById('pacman');
-//   let imgWidth = img.width;
-//   focus = (focus + 1) % 2;  // focus flips between 0 and 1 every time Run() is called
-//   direction = checkPageBounds(direction, imgWidth, pos, pageWidth); //check if the direction of pacman needs to change
-//   img.src = pacArray[direction][focus]; //display image based on direction and focus (left/right? open/closed?)
-  
-//   //move pacman based on direction
-//   if (direction) {
-//     pos -= 20;  //decrease 20 px
-//     img.style.left = pos + 'px';
-//   } else {
-//     pos += 20;  //increase 20 px
-//     img.style.left = pos + 'px';
-//   }
-// }
-// // TODO: Add a Javascript setInterval() method that will call the Run() function above every 200 milliseconds. Note: in the video, Dr. Williams uses the setTimeout() method, but here we are going to use a slightly different
-// // method called setInterval(), so that you can have practice using this method.
-// setInterval(Run, 200)
-// // Inside of the Run() function you will also have to add an extra argument "pageWidth", which is declared on line 4 when you call the checkPageBounds() function below. 
-
-// // This function determines the direction of PacMan based on screen edge detection. 
-// function checkPageBounds(direction, imgWidth, pos, pageWidth) {
-//   //
-//   // TODO: Complete this to reverse direction upon hitting screen edge
-//   //
-//   if (direction == 1 && pos < 0)
-//     direction = 0;
-//   if (direction == 0 && pos + imgWidth > pageWidth)
-//     direction = 1;
-  
-//   return direction;
-// }
-
-// //Please do not change
-// module.exports = checkPageBounds;
