@@ -1,7 +1,7 @@
 # PacMan Exercise
 This application could potentially simulate infinite PacMen characters chomping their way up and down the window before turning around at the x-limit of the browser.
 
-To make this happen, the user is given a button to create another PacMan if desired. Upon request, this application will add a new PacMan and store the positon, velocity, direction, and focus data to the end of an array that stores all the PacMen's data. The main function of pacmen.js is a timed recurring function that translates the PacMen's position, checks each PacMan for a collision with the window, adjusts the stored data accordingly for each PacMan, and determines what PacMan image to display to show animation. Which is then mirrored on the DOM.
+To make this happen, the user is given a button to create another PacMan if desired. Upon request, this application will add a new PacMan and store the positon, velocity, direction, and focus data to the end of an array that stores all the PacMen's data. The main function of pacmen.js is a timed recurring function that translates the PacMen's position, checks each PacMan for a collision with the window, adjusts the stored data accordingly for each PacMan, and determines what PacMan image to display to show animation. This is then mirrored on the DOM.
 
 ## How to Run?
 Once index.html, pacmen.js, and ./images/pacman1, ./images/pacman2, ./images/pacman3, ./images/pacman4 are downloaded into a folder, load index.html into a browser. 
